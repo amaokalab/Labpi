@@ -25,8 +25,9 @@ async function main() {
   let cpuRes = await exec("cat /sys/class/thermal/thermal_zone0/temp");
   sendData.d1 = cpuRes.stdout / 1000.0;
 
-  let res = await ambient.send(sendData);
-  console.log(res);
+  console.log("--- send data ---");
+  console.log(sendData);
+  await ambient.send(sendData);
 }
 
-main();
+main().catch(e => console.log(e));
