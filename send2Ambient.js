@@ -23,7 +23,7 @@ async function main() {
 
   // cpu温度取得
   let cpuRes = await exec("cat /sys/class/thermal/thermal_zone0/temp");
-  sendData.d1 = res.stdout / 1000.0;
+  sendData.d1 = cpuRes.stdout / 1000.0;
 
   let res = await ambient.send(sendData);
   console.log(res);
