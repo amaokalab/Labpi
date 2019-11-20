@@ -1,3 +1,4 @@
 .DS_Store
-node_modules
-ignore
+env.js
+node_modules/
+ignore/
