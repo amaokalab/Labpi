@@ -4,6 +4,7 @@
   "description": "研究室内のラズパイ(volumio)開発用リポジトリ",
   "main": "index.js",
   "scripts": {
+    "cpuForever": "./node_modules/forever/bin/forever start CPUTempLog/send2AmbiInterval.js",
     "deploy": "git add . && git commit -m 'デプロイ' && git push origin master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/amaokalab/LabpiDev#readme",
   "dependencies": {
-    "ambient-lib": "^0.1.5"
+    "ambient-lib": "^0.1.5",
+    "forever": "^1.0.0"
   }
 }
