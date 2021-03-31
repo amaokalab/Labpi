@@ -1,13 +1,13 @@
 /*
-env.jsファイルを以下のように作ってください
-module.exports = {
-  AMBIENT_CHANNEL_ID: "",
-  AMBIENT_WRITE_KEY: "",
-  AMBIENT_READ_KEY: ""
-};
+nodeのほうで定期的にデータ送信するプログラムを書いている
+
+.envファイルを以下のように作ってください(https://ambidata.io/)
+AMBIENT_CHANNEL_ID = [チャンネルID]
+AMBIENT_WRITE_KEY = [ライトキー]
+AMBIENT_READ_KEY = [リードキー]
 */
 
-const env = require("./env.js");
+require('dotenv').config();
 const ambient = require("ambient-lib");
 
 // cpu温度取得の準備
@@ -24,7 +24,7 @@ async function main() {
 
   // ambientに接続
   // https://ambidata.io/ch/channel.html?id=11402&private=true
-  ambient.connect(env.AMBIENT_CHANNEL_ID, env.AMBIENT_WRITE_KEY);
+  ambient.connect(process.env.AMBIENT_CHANNEL_ID, process.env.AMBIENT_WRITE_KEY);
   let sendData = {};
 
   // cpu温度取得
